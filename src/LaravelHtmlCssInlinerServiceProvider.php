@@ -27,10 +27,10 @@ class LaravelHtmlCssInlinerServiceProvider extends ServiceProvider
     {
 
 
-        $this->mergeConfigFrom(__DIR__ . '/../config/css-inliner.php', 'css-inliner');
+        $this->mergeConfigFrom(__DIR__ . '/../config/html-css-inliner.php', 'html-css-inliner');
 
         $this->app->singleton(HtmlCssInlinerPlugin::class, function ($app) {
-            return new HtmlCssInlinerPlugin($app['config']->get('css-inliner'));
+            return new HtmlCssInlinerPlugin($app['config']->get('html-css-inliner'));
         });
 
         $this->app->booting(function() {
