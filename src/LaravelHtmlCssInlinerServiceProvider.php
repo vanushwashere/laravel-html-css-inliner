@@ -1,7 +1,8 @@
 <?php namespace VanushWasHere\LaravelHtmlCssInliner;
 
 use Illuminate\Support\ServiceProvider;
-use VanushWasHere\LaravelHtmlCssInliner\CssInlinerPlugin;
+use Illuminate\Foundation\AliasLoader;
+use VanushWasHere\LaravelHtmlCssInliner\HtmlCssInlinerPlugin;
 
 class LaravelHtmlCssInlinerServiceProvider extends ServiceProvider
 {
@@ -24,16 +25,18 @@ class LaravelHtmlCssInlinerServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
+
         $this->mergeConfigFrom(__DIR__ . '/../config/css-inliner.php', 'css-inliner');
 
-        $this->app->singleton(CssInlinerPlugin::class, function ($app) {
-            return new CssInlinerPlugin($app['config']->get('css-inliner'));
+        $this->app->singleton(HtmlCssInlinerPlugin::class, function ($app) {
+            return new HtmlCssInlinerPlugin($app['config']->get('css-inliner'));
         });
 
-     /*   $this->app->extend('swift.mailer', function (Swift_Mailer $swiftMailer, $app) {
-            $inlinerPlugin = $app->make(CssInlinerPlugin::class);
-            $swiftMailer->registerPlugin($inlinerPlugin);
-            return $swiftMailer;
-        });*/
+        $this->app->booting(function() {
+            $loader = AliasLoader::getInstance();
+            $loader->alias('InlineCss', HtmlCssInlinerPlugin::class);
+        });
+
     }
 }

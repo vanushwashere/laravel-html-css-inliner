@@ -4,7 +4,7 @@ namespace VanushWasHere\LaravelHtmlCssInliner;
 
 use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
-class CssInlinerPlugin
+class HtmlCssInlinerPlugin
 {
     /**
      * @var CssToInlineStyles
