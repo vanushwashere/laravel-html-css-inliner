@@ -23,11 +23,6 @@
             "VanushWasHere\\LaravelHtmlCssInliner\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
     "config": {
         "sort-packages": true
     },
