@@ -9,13 +9,10 @@ use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles as BaseInliner;
 
 class CssToInlineStyles extends BaseInliner
 {
-    private $cssConverter;
 
     public function __construct()
     {
-        if (class_exists('Symfony\Component\CssSelector\CssSelectorConverter')) {
-            $this->cssConverter = new CssSelectorConverter();
-        }
+       parent::__construct();
     }
 
     /**
