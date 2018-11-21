@@ -2,7 +2,7 @@
 
 namespace VanushWasHere\LaravelHtmlCssInliner;
 
-use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
+use VanushWasHere\LaravelHtmlCssInliner\CssInliner\CssToInlineStyles;
 
 class HtmlCssInlinerPlugin
 {
